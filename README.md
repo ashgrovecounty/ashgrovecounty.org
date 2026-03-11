@@ -32,9 +32,9 @@ The site is built with plain HTML, CSS, and JavaScript. No frameworks, no depend
 
 ## Contact
 
-Non-emergency line: (307) 362-1293
-Anonymous tips: tips@ashgrovecounty.org
-Instagram: @acsowyoming
+- Non-emergency line: **(307) 362-1293**
+- Anonymous tips: tips@ashgrovecounty.org
+- Instagram: **@acsowyoming**
 
 ---
 
