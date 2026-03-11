@@ -42,7 +42,7 @@
     }
     #topbar-left {
       font-family: 'Share Tech Mono', monospace;
-      font-size: 0.58rem;
+      font-size: 0.7rem;
       color: #ffff99;
       letter-spacing:0.05em;
     }
@@ -51,7 +51,7 @@
     }
     .topbar-badge {
       font-family: 'Share Tech Mono', monospace;
-      font-size: 0.54rem;
+      font-size: 0.66rem;
       background: #ffff00;
       color: #000080;
       padding: 1px 5px;
