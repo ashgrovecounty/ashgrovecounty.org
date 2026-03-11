@@ -14,7 +14,7 @@
   <div id="topbar-right">
     <span class="topbar-badge red">&#9888; CASE REOPENED</span>
     <span class="topbar-badge green">&#9679; SITE ONLINE</span>
-    <span class="topbar-badge" id="topbar-date">Last Updated: —</span>
+    <span class="topbar-badge">Last Updated: 03/07/2026</span>
   </div>
 </div>
 
@@ -53,12 +53,17 @@
   <div id="page-home" class="page active">
     <div class="page-layout">
     <main>
-      <div class="last-updated" data-auto-date>Last updated: —</div>
+      <div class="last-updated">Last updated: 03/07/2026 — 11:02 MST</div>
       <div class="page-title"><span>// Welcome</span>Ashgrove County Sheriff's Office</div>
 
       <div class="alert-box">
         <div class="alert-title">&#9873; Active Notice &mdash; Case #97-0441 Reopened</div>
         <p style="margin:0;">Following discovery of unprocessed evidence during the archive digitization project, Case <strong>#97-0441</strong> — originally logged October 14, 1997 — has been formally reopened. The ACSO is actively seeking information from the public. <a href="#" onclick="goTo('missing');return false;" style="color:var(--navy); font-family:'Share Tech Mono',monospace; font-size:0.78em;">View case details &rarr;</a></p>
+      </div>
+
+      <div class="scene-photo">
+        <img src="images/wyoming-scenery.jpg" alt="Ashgrove County, Wyoming" onerror="this.parentElement.style.display='none'"/>
+        <div class="scene-caption">Ashgrove County — Wind River foothills, central Wyoming</div>
       </div>
 
       <p>Welcome to the official online presence of the Ashgrove County Sheriff's Office. This department is committed to maintaining public safety, transparency, and community trust across all 2,400 square miles of Ashgrove County, Wyoming.</p>
@@ -116,7 +121,7 @@
         <tr><td>Anonymous Tips</td><td>tips@ashgrovecounty.org &nbsp;|&nbsp; ext. 7</td></tr>
         <tr><td>Public Records</td><td>records@ashgrovecounty.org</td></tr>
         <tr><td>Office Hours</td><td>Mon–Fri, 8:00 AM – 5:00 PM MST</td></tr>
-        <tr><td>Address</td><td>County Road 4, Ashgrove, WY 82XXX</td></tr>
+        <tr><td>Address</td><td>County Road 4, Ashgrove, WY 82099</td></tr>
       </table>
     </main>
 
@@ -130,9 +135,7 @@
         </div>
         <div class="counter-box">
           <div class="counter-label">Visitors <span class="blink">&#9608;</span></div>
-          <a href="https://hits.seeyoufarm.com">
-            <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fashgrovecounty.org&count_bg=%234AFF8A&title_bg=%230F1928&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=true" style="max-width:100%;height:auto;" alt="visitor counter"/>
-          </a>
+          <div class="counter-digits" id="hit-counter">000000</div>
         </div>
       </div>
 
@@ -142,7 +145,7 @@
           <div class="weather-box">
             <div class="weather-temp">28°F</div>
             <div class="weather-desc">Partly Cloudy</div>
-            <div class="weather-location">Ashgrove, WY 82XXX</div>
+            <div class="weather-location">Ashgrove, WY 82099</div>
           </div>
         </div>
       </div>
@@ -166,6 +169,13 @@
           <p style="font-size:0.75rem; color:var(--red); font-family:'Share Tech Mono',monospace; letter-spacing:0.04em;">&#9888; MISSING: T. ALDERMAN</p>
         </div>
       </div>
+      <div class="sidebar-box">
+        <div class="sidebar-box-title">From the Archive</div>
+        <div class="archive-photo-box">
+          <img src="images/archive-photo.jpg" alt="1997 archive photo" onerror="this.parentElement.style.display='none'"/>
+          <div class="archive-caption">ACSO Field Office, Rt. 12 — circa 1997</div>
+        </div>
+      </div>
     </aside>
     </div>
   </div>
@@ -174,7 +184,7 @@
   <div id="page-news" class="page">
     <div class="page-layout">
     <main>
-      <div class="last-updated" data-auto-date>Last updated: —</div>
+      <div class="last-updated">Last updated: 03/07/2026 — 09:45 MST</div>
       <div class="page-title"><span>// Public Communications</span>News &amp; Press Releases</div>
 
       <p>Official press releases and public statements from the Ashgrove County Sheriff's Office. All releases are archived and available upon public records request.</p>
@@ -194,6 +204,12 @@
           <p>The public is encouraged to contact the ACSO with any information, however dated it may seem. Anonymous tips can be submitted via email at <strong>tips@ashgrovecounty.org</strong> or by calling ext. 7.</p>
           <div class="pr-contact">Contact: R. Voss, Public Information Officer &nbsp;|&nbsp; (307) 362-1293 ext. 4</div>
         </div>
+      </div>
+
+      <div class="doc-scan-box">
+        <div class="doc-scan-label">&#128196; Scanned Document — Evidence Log, Case #97-0441 &nbsp;|&nbsp; Recovered Jan. 2026</div>
+        <img src="images/evidence-doc.jpg" alt="Scanned evidence document" onerror="this.parentElement.style.display='none'"/>
+        <div class="doc-scan-note">[ Document partially redacted pending review — Det. S. Dunmore, 03/05/2026 ]</div>
       </div>
 
       <!-- PR 2 -->
@@ -286,7 +302,7 @@
   <div id="page-missing" class="page">
     <div class="page-layout">
     <main>
-      <div class="last-updated" data-auto-date>Last updated: —</div>
+      <div class="last-updated">Last updated: 03/07/2026 — 09:14 MST</div>
       <div class="page-title"><span>// Active &amp; Cold Cases</span>Missing Persons Registry</div>
 
       <p>The following individuals have been reported missing within Ashgrove County jurisdiction. Contact the ACSO immediately at <strong>(307) 362-1293</strong> or submit a tip at <strong>tips@ashgrovecounty.org</strong>.</p>
@@ -299,7 +315,7 @@
       <div class="mp-grid">
         <div class="mp-card">
           <div class="mp-card-header"><span>Case #97-0388</span><span class="status-cold">&#9679; Cold Case</span></div>
-          <div class="mp-photo">Photo Unavailable<br/>[ See Physical File ]</div>
+          <div class="mp-photo"><img src="images/mp-redacted.jpg" alt="Photo unavailable" onerror="this.innerHTML='Photo Unavailable &mdash; See Physical File'"/></div>
           <div class="mp-card-body">
             <h4><span class="redacted">████████████████</span></h4>
             <div class="mp-detail"><span class="label">Reported</span>Oct 22, 1997</div>
@@ -312,7 +328,7 @@
 
         <div class="mp-card">
           <div class="mp-card-header"><span>Case #97-0441</span><span class="status-reopened">&#9679; Reopened</span></div>
-          <div class="mp-photo">Photo On File<br/>[ Access Restricted ]</div>
+          <div class="mp-photo restricted"><img src="images/mp-restricted.jpg" alt="Access restricted" onerror="this.innerHTML='Photo On File &mdash; Access Restricted'"/></div>
           <div class="mp-card-body">
             <h4><span class="redacted">████████████████</span></h4>
             <div class="mp-detail"><span class="label">Reported</span>Oct 14, 1997</div>
@@ -325,7 +341,7 @@
 
         <div class="mp-card">
           <div class="mp-card-header"><span>Case #97-0509</span><span class="status-cold">&#9679; Cold Case</span></div>
-          <div class="mp-photo">Photo Unavailable<br/>[ See Physical File ]</div>
+          <div class="mp-photo"><img src="images/mp-redacted.jpg" alt="Photo unavailable" onerror="this.innerHTML='Photo Unavailable &mdash; See Physical File'"/></div>
           <div class="mp-card-body">
             <h4><span class="redacted">████████████████</span></h4>
             <div class="mp-detail"><span class="label">Reported</span>Nov 30, 1997</div>
@@ -338,7 +354,7 @@
 
         <div class="mp-card">
           <div class="mp-card-header"><span>Case #97-0591</span><span class="status-cold">&#9679; Cold Case</span></div>
-          <div class="mp-photo">Photo On File<br/>[ Access Restricted ]</div>
+          <div class="mp-photo restricted"><img src="images/mp-restricted.jpg" alt="Access restricted" onerror="this.innerHTML='Photo On File &mdash; Access Restricted'"/></div>
           <div class="mp-card-body">
             <h4>Det. <span class="redacted">████████████████</span></h4>
             <div class="mp-detail"><span class="label">Reported</span>Dec 9, 1997</div>
@@ -352,7 +368,7 @@
 
         <div class="mp-card">
           <div class="mp-card-header"><span>Case #98-0012</span><span class="status-cold">&#9679; Cold Case</span></div>
-          <div class="mp-photo">Photo Unavailable<br/>[ See Physical File ]</div>
+          <div class="mp-photo"><img src="images/mp-redacted.jpg" alt="Photo unavailable" onerror="this.innerHTML='Photo Unavailable &mdash; See Physical File'"/></div>
           <div class="mp-card-body">
             <h4><span class="redacted">████████████████</span></h4>
             <div class="mp-detail"><span class="label">Reported</span>Jan 9, 1998</div>
@@ -365,7 +381,7 @@
 
         <div class="mp-card">
           <div class="mp-card-header"><span>Case #26-0031</span><span class="status-active">&#9679; Active</span></div>
-          <div class="mp-photo">Photo On File<br/>[ Contact ACSO for Description ]</div>
+          <div class="mp-photo"><img src="images/mp-alderman.jpg" alt="Thomas Alderman" onerror="this.innerHTML='Photo On File &mdash; Contact ACSO'"/></div>
           <div class="mp-card-body">
             <h4>Thomas R. Alderman</h4>
             <div class="mp-detail"><span class="label">Reported</span>Feb 28, 2026</div>
@@ -414,7 +430,7 @@
   <div id="page-about" class="page">
     <div class="page-layout">
     <main>
-      <div class="last-updated" data-auto-date>Last updated: —</div>
+      <div class="last-updated">Last updated: 01/15/2026 — 14:33 MST</div>
       <div class="page-title"><span>// Department Info</span>About the Ashgrove County Sheriff's Office</div>
 
       <p>The Ashgrove County Sheriff's Office was established in 1891, the same year Wyoming achieved statehood. For over 130 years, the department has served the residents of Ashgrove County with a commitment to integrity, professionalism, and public safety.</p>
@@ -516,7 +532,7 @@
           <div class="contact-line"><span class="contact-label">Non-Emergency</span><span class="contact-number">(307) 362-1293</span></div>
           <div class="contact-line">
             <span class="contact-label">Address</span>
-            <span style="font-size:0.78rem;color:#445570;">County Road 4<br/>Ashgrove, WY 82XXX</span>
+            <span style="font-size:0.78rem;color:#445570;">County Road 4<br/>Ashgrove, WY 82099</span>
           </div>
         </div>
       </div>
@@ -547,7 +563,7 @@
 
 <!-- FOOTER -->
 <footer>
-  <div>Ashgrove County Sheriff's Office &nbsp;&middot;&nbsp; County Road 4, Ashgrove, Wyoming 82XXX &nbsp;&middot;&nbsp; Est. 1891</div>
+  <div>Ashgrove County Sheriff's Office &nbsp;&middot;&nbsp; County Road 4, Ashgrove, Wyoming 82099 &nbsp;&middot;&nbsp; Est. 1891</div>
   <div id="footer-line2">Non-Emergency: (307) 362-1293 &nbsp;&middot;&nbsp; <a href="#">tips@ashgrovecounty.org</a> &nbsp;&middot;&nbsp; <a href="#">Public Records</a> &nbsp;&middot;&nbsp; <a href="#">Instagram: @acsowyoming</a></div>
   <div class="footer-badges">
     <span class="footer-badge">&#9733; Official Government Site</span>
