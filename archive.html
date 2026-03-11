@@ -130,8 +130,8 @@
       outline:none; transition:border-color 0.2s;
     }
     #password-input:focus { border-color:var(--gold-dim); }
-    #password-input.error { border-color:var(--red-light); animation:shake 0.3s; }
-    @keyframes shake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-6px)} 75%{transform:translateX(6px)} }
+    #password-input.error { border-color:var(--red-light); }
+    
     #login-btn {
       width:100%; margin-top:12px;
       background:var(--navy); border:1px solid var(--border2);
@@ -303,8 +303,8 @@
       padding-bottom:5px; margin-bottom:10px;
     }
     .file-body {
-      font-family:var(--body); font-size:0.92rem; color:var(--text);
-      line-height:1.7;
+      font-family:var(--body); font-size:1.05rem; color:var(--text);
+      line-height:1.8;
     }
     .file-body p { margin-bottom:10px; }
     .file-body .redacted {
@@ -321,7 +321,7 @@
     }
     .evidence-list li:last-child { border-bottom:none; }
     .ev-id { font-family:var(--mono); font-size:0.58rem; color:var(--gold-dim); flex-shrink:0; padding-top:2px; }
-    .ev-desc { flex:1; font-family:var(--body); line-height:1.5; }
+    .ev-desc { flex:1; font-family:var(--body); font-size:1.0rem; line-height:1.6; }
     .ev-status { font-size:0.5rem; letter-spacing:0.08em; color:var(--text-dim); flex-shrink:0; padding-top:3px; }
 
     /* Cipher block */
@@ -372,6 +372,61 @@
     }
     #statusbar-left { display:flex; gap:20px; }
     #statusbar-right { color:var(--text-faint); }
+
+    /* ── MEDIA PLAYER ── */
+    .media-player {
+      background: var(--bg); border: 1px solid var(--border2);
+      padding: 14px 16px; margin: 14px 0;
+    }
+    .media-label {
+      font-size: 0.52rem; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--text-dim); margin-bottom: 10px; display: flex; align-items: center; gap: 8px;
+    }
+    .media-label span { color: var(--gold-dim); }
+    .media-player audio, .media-player video {
+      width: 100%; outline: none;
+      filter: sepia(0.2) saturate(0.8);
+    }
+    .media-player video { max-height: 320px; background: #000; display: block; }
+    .media-unavailable {
+      background: var(--bg); border: 1px dashed var(--border2);
+      padding: 18px; text-align: center; margin: 14px 0;
+      color: var(--text-faint); font-size: 0.6rem; letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .media-unavailable-icon { font-size: 1.4rem; margin-bottom: 8px; opacity: 0.4; }
+
+    /* ── LOCK in file viewer (right panel inline) ── */
+    .viewer-lock {
+      border: 1px solid var(--border2); background: var(--bg2);
+      padding: 20px 24px; margin: 0;
+    }
+    .viewer-lock-title {
+      font-family: var(--serif); font-size: 1rem; color: var(--text);
+      margin-bottom: 6px; display: flex; align-items: center; gap: 10px;
+    }
+    .viewer-lock-sub {
+      font-size: 0.58rem; color: var(--text-dim); letter-spacing: 0.08em;
+      text-transform: uppercase; margin-bottom: 18px; line-height: 2;
+    }
+    .viewer-lock-row { display: flex; gap: 8px; max-width: 340px; }
+    .viewer-lock-input {
+      flex: 1; background: var(--bg); border: 1px solid var(--border2);
+      color: var(--text); font-family: var(--mono); font-size: 0.82rem;
+      padding: 8px 10px; letter-spacing: 0.1em; outline: none;
+    }
+    .viewer-lock-input:focus { border-color: var(--gold-dim); }
+    .viewer-lock-input.error { border-color: var(--red-light); }
+    .viewer-lock-btn {
+      background: var(--navy); border: 1px solid var(--border2);
+      color: var(--gold); font-family: var(--mono); font-size: 0.58rem;
+      letter-spacing: 0.1em; padding: 8px 14px; cursor: pointer;
+      text-transform: uppercase; transition: background 0.15s;
+    }
+    .viewer-lock-btn:hover { background: var(--bg4); }
+    .viewer-lock-error { font-size: 0.54rem; color: var(--red-light); margin-top: 7px; min-height: 14px; }
+    .viewer-lock-hint { font-size: 0.5rem; color: var(--text-faint); margin-top: 14px; line-height: 2; letter-spacing: 0.06em; }
+
   </style>
 </head>
 <body>
@@ -451,6 +506,11 @@
             <div class="tree-file" onclick="openFile('incident-79')"><span class="tree-file-icon doc">&#128196;</span><span class="tree-file-name">Incident Report #79-0047</span><span class="tree-file-type">DOC</span></div>
             <div class="tree-file" onclick="openFile('budget-82')"><span class="tree-file-icon doc">&#128196;</span><span class="tree-file-name">Dept. Budget Summary 1982</span><span class="tree-file-type">TXT</span></div>
             <div class="tree-file" onclick="openFile('dispatch-85')"><span class="tree-file-icon doc">&#128196;</span><span class="tree-file-name">Dispatch Log — Q3 1985</span><span class="tree-file-type">LOG</span></div>
+            <div class="tree-file" onclick="openFile('incident-81-fire')"><span class="tree-file-icon doc">&#128196;</span><span class="tree-file-name">Incident Report #81-0031</span><span class="tree-file-type">DOC</span></div>
+            <div class="tree-file" onclick="openFile('incident-87-assault')"><span class="tree-file-icon doc">&#128196;</span><span class="tree-file-name">Incident Report #87-0074</span><span class="tree-file-type">DOC</span></div>
+            <div class="tree-file" onclick="openFile('budget-86')"><span class="tree-file-icon doc">&#128196;</span><span class="tree-file-name">Dept. Budget Summary 1986</span><span class="tree-file-type">TXT</span></div>
+            <div class="tree-file" onclick="openFile('incident-76-missing')"><span class="tree-file-icon doc">&#128196;</span><span class="tree-file-name">Incident Report #76-0009</span><span class="tree-file-type">DOC</span></div>
+            <div class="tree-file" onclick="openFile('memo-88-jurisdiction')"><span class="tree-file-icon doc">&#128196;</span><span class="tree-file-name">Internal Memo — Jurisdiction 1988</span><span class="tree-file-type">MEM</span></div>
           </div>
         </div>
 
@@ -466,6 +526,10 @@
             <div class="tree-file" onclick="openFile('incident-93-vehicle')"><span class="tree-file-icon doc">&#128196;</span><span class="tree-file-name">Incident Report #93-0118</span><span class="tree-file-type">DOC</span></div>
             <div class="tree-file" onclick="openFile('memo-94-staffing')"><span class="tree-file-icon doc">&#128196;</span><span class="tree-file-name">Internal Memo — Staffing 1994</span><span class="tree-file-type">MEM</span></div>
             <div class="tree-file" onclick="openFile('patrol-96')"><span class="tree-file-icon doc">&#128196;</span><span class="tree-file-name">Patrol Summary — 1996</span><span class="tree-file-type">TXT</span></div>
+            <div class="tree-file" onclick="openFile('incident-95-break')"><span class="tree-file-icon doc">&#128196;</span><span class="tree-file-name">Incident Report #95-0066</span><span class="tree-file-type">DOC</span></div>
+            <div class="tree-file" onclick="openFile('memo-92-radio')"><span class="tree-file-icon doc">&#128196;</span><span class="tree-file-name">Internal Memo — Radio Equipment</span><span class="tree-file-type">MEM</span></div>
+            <div class="tree-file" onclick="openFile('incident-90-fire')"><span class="tree-file-icon doc">&#128196;</span><span class="tree-file-name">Incident Report #90-0142</span><span class="tree-file-type">DOC</span></div>
+            <div class="tree-file" onclick="openFile('dispatch-93-annual')"><span class="tree-file-icon doc">&#128196;</span><span class="tree-file-name">Dispatch Log — Annual 1993</span><span class="tree-file-type">LOG</span></div>
           </div>
         </div>
 
@@ -513,6 +577,8 @@
             <div class="tree-file locked" onclick="openLocked('97-0441-letter','97-0441')"><span class="tree-file-icon lock">&#128274;</span><span class="tree-file-name">Envelope &amp; Letter (Item 1)</span><span class="tree-file-type">IMG</span></div>
             <div class="tree-file locked" onclick="openLocked('97-0441-photo','97-0441')"><span class="tree-file-icon lock">&#128274;</span><span class="tree-file-name">B&amp;W Photograph (Item 3)</span><span class="tree-file-type">IMG</span></div>
             <div class="tree-file locked" onclick="openLocked('97-0441-analysis','97-0441')"><span class="tree-file-icon lock">&#128274;</span><span class="tree-file-name">Cipher Analysis — Det. Notes</span><span class="tree-file-type">DOC</span></div>
+            <div class="tree-file locked" onclick="openLocked('97-0441-audio','97-0441')"><span class="tree-file-icon lock">&#128274;</span><span class="tree-file-name">Dispatch Recording — Oct 14</span><span class="tree-file-type">AUD</span></div>
+            <div class="tree-file locked" onclick="openLocked('97-0441-audio','97-0441')"><span class="tree-file-icon lock">&#128274;</span><span class="tree-file-name">Dispatch Recording — Oct 14</span><span class="tree-file-type">AUD</span></div>
           </div>
         </div>
 
@@ -541,6 +607,10 @@
             <div class="tree-file locked" onclick="openLocked('97-0591-lastlog','97-0591')"><span class="tree-file-icon lock">&#128274;</span><span class="tree-file-name">Last Known Activity Log</span><span class="tree-file-type">LOG</span></div>
             <div class="tree-file locked" onclick="openLocked('97-0591-personal','97-0591')"><span class="tree-file-icon lock">&#128274;</span><span class="tree-file-name">Personal Effects Inventory</span><span class="tree-file-type">DOC</span></div>
             <div class="tree-file locked" onclick="openLocked('97-0591-casebook','97-0591')"><span class="tree-file-icon lock">&#128274;</span><span class="tree-file-name">Case Notebook — Partial</span><span class="tree-file-type">IMG</span></div>
+            <div class="tree-file locked" onclick="openLocked('97-0591-audio','97-0591')"><span class="tree-file-icon lock">&#128274;</span><span class="tree-file-name">Voicemail — Dec 8 1997</span><span class="tree-file-type">AUD</span></div>
+            <div class="tree-file locked" onclick="openLocked('97-0591-dashcam','97-0591')"><span class="tree-file-icon lock">&#128274;</span><span class="tree-file-name">Unit 3 Dashcam — Dec 11</span><span class="tree-file-type">VID</span></div>
+            <div class="tree-file locked" onclick="openLocked('97-0591-audio','97-0591')"><span class="tree-file-icon lock">&#128274;</span><span class="tree-file-name">Voicemail — Dec 8 1997</span><span class="tree-file-type">AUD</span></div>
+            <div class="tree-file locked" onclick="openLocked('97-0591-dashcam','97-0591')"><span class="tree-file-icon lock">&#128274;</span><span class="tree-file-name">Unit 3 Dashcam — Dec 11</span><span class="tree-file-type">VID</span></div>
           </div>
         </div>
 
@@ -594,10 +664,17 @@
           </div>
           <div class="tree-children" id="children-recent-general">
             <div class="tree-file" onclick="openFile('annual-2000')"><span class="tree-file-icon doc">&#128196;</span><span class="tree-file-name">Annual Report — 2000</span><span class="tree-file-type">TXT</span></div>
+            <div class="tree-file" onclick="openFile('annual-2003')"><span class="tree-file-icon doc">&#128196;</span><span class="tree-file-name">Annual Report — 2003</span><span class="tree-file-type">TXT</span></div>
             <div class="tree-file" onclick="openFile('annual-2005')"><span class="tree-file-icon doc">&#128196;</span><span class="tree-file-name">Annual Report — 2005</span><span class="tree-file-type">TXT</span></div>
+            <div class="tree-file" onclick="openFile('annual-2008')"><span class="tree-file-icon doc">&#128196;</span><span class="tree-file-name">Annual Report — 2008</span><span class="tree-file-type">TXT</span></div>
             <div class="tree-file" onclick="openFile('annual-2010')"><span class="tree-file-icon doc">&#128196;</span><span class="tree-file-name">Annual Report — 2010</span><span class="tree-file-type">TXT</span></div>
+            <div class="tree-file" onclick="openFile('annual-2012')"><span class="tree-file-icon doc">&#128196;</span><span class="tree-file-name">Annual Report — 2012</span><span class="tree-file-type">TXT</span></div>
             <div class="tree-file" onclick="openFile('annual-2015')"><span class="tree-file-icon doc">&#128196;</span><span class="tree-file-name">Annual Report — 2015</span><span class="tree-file-type">TXT</span></div>
+            <div class="tree-file" onclick="openFile('annual-2018')"><span class="tree-file-icon doc">&#128196;</span><span class="tree-file-name">Annual Report — 2018</span><span class="tree-file-type">TXT</span></div>
             <div class="tree-file" onclick="openFile('annual-2020')"><span class="tree-file-icon doc">&#128196;</span><span class="tree-file-name">Annual Report — 2020</span><span class="tree-file-type">TXT</span></div>
+            <div class="tree-file" onclick="openFile('memo-2004-hq')"><span class="tree-file-icon doc">&#128196;</span><span class="tree-file-name">HQ Renovation Memo — 2004</span><span class="tree-file-type">MEM</span></div>
+            <div class="tree-file" onclick="openFile('memo-2009-evidence')"><span class="tree-file-icon doc">&#128196;</span><span class="tree-file-name">Evidence Storage Protocol — 2009</span><span class="tree-file-type">MEM</span></div>
+            <div class="tree-file" onclick="openFile('memo-2014-fleet')"><span class="tree-file-icon doc">&#128196;</span><span class="tree-file-name">Fleet Update Memo — 2014</span><span class="tree-file-type">MEM</span></div>
             <div class="tree-file" onclick="openFile('calloway-transition')"><span class="tree-file-icon doc">&#128196;</span><span class="tree-file-name">Sheriff Transition Memo — 2026</span><span class="tree-file-type">MEM</span></div>
           </div>
         </div>
@@ -615,6 +692,7 @@
             <div class="tree-file" onclick="openFile('26-0031-vehicle')"><span class="tree-file-icon doc">&#128196;</span><span class="tree-file-name">Vehicle — BOLO Report</span><span class="tree-file-type">DOC</span></div>
             <div class="tree-file locked" onclick="openLocked('26-0031-research','26-0031')"><span class="tree-file-icon lock">&#128274;</span><span class="tree-file-name">Research Notes — Recovered</span><span class="tree-file-type">DOC</span></div>
             <div class="tree-file locked" onclick="openLocked('26-0031-phone','26-0031')"><span class="tree-file-icon lock">&#128274;</span><span class="tree-file-name">Phone Records — Partial</span><span class="tree-file-type">LOG</span></div>
+            <div class="tree-file locked" onclick="openLocked('26-0031-voicemail','26-0031')"><span class="tree-file-icon lock">&#128274;</span><span class="tree-file-name">Last Voicemail — Feb 28</span><span class="tree-file-type">AUD</span></div>
           </div>
         </div>
 
@@ -941,6 +1019,90 @@ const FILES = {
     status: 'closed',
     body: `<div class="file-section"><div class="file-section-title">Project Overview</div><div class="file-body"><p>This memo outlines the scope and phasing of the ACSO archive digitization initiative, approved by Sheriff Hargrove on January 3, 2026.</p><p><strong>Phase 1</strong> (Jan–Apr 2026): Patrol logs, incident reports, and evidence documentation from 1971–1990.<br/><strong>Phase 2</strong> (May–Sept 2026): Records from 1990–2005 — includes case files of particular historical significance.<br/><strong>Phase 3</strong> (Oct–Dec 2026): 2005–present materials.</p><p>Digitized materials cleared for public release will be made available via the ACSO website. Materials under seal or pending review will be restricted to this archive system.</p></div></div>`
   },
+  'incident-81-fire': {
+    title: 'Incident Report #81-0031', case: 'General Records (1971–1989)', date: 'June 12, 1981', author: 'Dep. H. Crane', status: 'closed',
+    body: `<div class="file-section"><div class="file-section-title">Incident Summary</div><div class="file-body"><p>Grass fire reported near County Road 8, approximately 1 mile north of the Ashgrove Township limit. Fire contained by Ashgrove County Fire Dept. within two hours. No structures affected. Origin determined to be accidental — unattended camp fire. No charges filed.</p></div></div>`
+  },
+  'incident-87-assault': {
+    title: 'Incident Report #87-0074', case: 'General Records (1971–1989)', date: 'October 3, 1987', author: 'Dep. T. Wills', status: 'closed',
+    body: `<div class="file-section"><div class="file-section-title">Incident Summary</div><div class="file-body"><p>Reported assault at the Route 12 roadhouse. Victim: male, 30s, minor injuries. Suspect: male, 40s, unknown to victim. Suspect fled scene before deputies arrived. No arrest made — insufficient evidence for follow-up. Case closed after 30-day review.</p></div></div>`
+  },
+  'budget-86': {
+    title: 'Department Budget Summary — 1986', case: 'General Records (1971–1989)', date: 'January 10, 1987', author: 'Sheriff E. Mossler Jr.', status: 'closed',
+    body: `<div class="file-section"><div class="file-section-title">Summary</div><div class="file-body"><p>Total departmental budget for fiscal year 1986: $248,900. Personnel costs: 76%. Vehicle maintenance and fuel: $21,400. Equipment: $12,200. Facility upkeep: $5,900. New radio system procurement approved — delivery expected Q2 1987.</p></div></div>`
+  },
+  'incident-95-break': {
+    title: 'Incident Report #95-0066', case: 'General Records (1990–1996)', date: 'May 14, 1995', author: 'Dep. R. Vance', status: 'closed',
+    body: `<div class="file-section"><div class="file-section-title">Incident Summary</div><div class="file-body"><p>Break-in reported at the Ashgrove Township hardware store on Main Street. Rear window forced. Cash register emptied — approximately $340 taken. No suspects identified. Fingerprints recovered but not matched in available records. Case closed after 60-day review period.</p></div></div>`
+  },
+  'memo-92-radio': {
+    title: 'Internal Memo — Radio Equipment Upgrade', case: 'General Records (1990–1996)', date: 'March 3, 1992', author: 'Sheriff R. Calloway', status: 'closed',
+    body: `<div class="file-section"><div class="file-section-title">Memo</div><div class="file-body"><p>TO: All personnel<br/>FROM: Sheriff R. Calloway<br/>RE: Radio equipment replacement<br/><br/>New Motorola hand units have arrived and will be distributed the week of March 16. All old units must be returned to Deputy Aldridge for inventory and decommissioning. The new units provide substantially improved coverage on the Route 7 north corridor, which has been a persistent dead zone.</p></div></div>`
+  },
+  'incident-76-missing': {
+    title: 'Incident Report #76-0009', case: 'General Records (1971–1989)', date: 'August 22, 1976', author: 'Dep. H. Crane', status: 'closed',
+    body: `<div class="file-section"><div class="file-section-title">Incident Summary</div><div class="file-body"><p>Missing person report filed for a seasonal ranch hand, adult male, last seen on the Kettner property off County Road 8. Subject located the following day — had become disoriented on foot in poor weather. No injuries. No further action taken.</p></div></div>`
+  },
+  'memo-88-jurisdiction': {
+    title: 'Internal Memo — Jurisdiction Clarification', case: 'General Records (1971–1989)', date: 'September 14, 1988', author: 'Sheriff E. Mossler Jr.', status: 'closed',
+    body: `<div class="file-section"><div class="file-section-title">Memo</div><div class="file-body"><p>TO: All deputies<br/>FROM: Sheriff Mossler<br/>RE: Coordination with Wyoming Highway Patrol on Route 12<br/><br/>Following the county boundary adjustment of August 1988, the eastern 4 miles of Route 12 now falls within our primary jurisdiction. Coordinate directly with WHP for incidents in this zone and copy the Sheriff on all joint reports.</p></div></div>`
+  },
+  'incident-90-fire': {
+    title: 'Incident Report #90-0142', case: 'General Records (1990–1996)', date: 'July 31, 1990', author: 'Dep. C. Aldridge', status: 'closed',
+    body: `<div class="file-section"><div class="file-section-title">Incident Summary</div><div class="file-body"><p>Structure fire at an outbuilding on the Weller property, Rural Route 4. Responding deputies secured a perimeter and assisted with evacuation. Fire contained by fire department. Cause: electrical fault. No injuries. Property loss estimated at $12,000.</p></div></div>`
+  },
+  'dispatch-93-annual': {
+    title: 'Dispatch Log — Annual Summary 1993', case: 'General Records (1990–1996)', date: 'January 6, 1994', author: 'Dispatch — ACSO', status: 'closed',
+    body: `<div class="file-section"><div class="file-section-title">Annual Summary</div><div class="file-body"><p>Total calls dispatched in 1993: 488. Response time average: 21 minutes. Breakdown: traffic incidents 34%, welfare checks 18%, domestic disturbances 12%, property crimes 11%, other 25%. No major unsolved cases. Staffing fully operational.</p></div></div>`
+  },
+  'annual-2003': {
+    title: 'Annual Report — 2003', case: 'General Records (1999–2025)', date: 'January 2004', author: 'Sheriff R. Calloway', status: 'closed',
+    body: `<div class="file-section"><div class="file-section-title">Summary</div><div class="file-body"><p>Routine annual summary. 12 sworn deputies. HQ renovation planning underway — county budget approval expected Q1 2004. No significant incidents. Fleet in good condition.</p></div></div>`
+  },
+  'annual-2008': {
+    title: 'Annual Report — 2008', case: 'General Records (1999–2025)', date: 'January 2009', author: 'Sheriff R. Calloway', status: 'closed',
+    body: `<div class="file-section"><div class="file-section-title">Summary</div><div class="file-body"><p>Routine annual summary. 13 deputies. Budget maintained within county projections despite fuel cost increases. One DUI fatality on Route 12 in September — ongoing road safety review with WHP. No major unsolved cases.</p></div></div>`
+  },
+  'annual-2012': {
+    title: 'Annual Report — 2012', case: 'General Records (1999–2025)', date: 'January 2013', author: 'Sheriff R. Calloway', status: 'closed',
+    body: `<div class="file-section"><div class="file-section-title">Summary</div><div class="file-body"><p>Routine annual summary. Full complement 14 deputies. New patrol vehicle procurement completed — 4 units replaced. No significant incidents. Evidence storage facility upgrade completed August 2012.</p></div></div>`
+  },
+  'annual-2018': {
+    title: 'Annual Report — 2018', case: 'General Records (1999–2025)', date: 'January 2019', author: 'Sheriff R. Calloway', status: 'closed',
+    body: `<div class="file-section"><div class="file-section-title">Summary</div><div class="file-body"><p>Body camera pilot program launched for 4 deputies in Q3. Program to expand department-wide in 2019. No significant incidents. Budget surplus of $14,200 returned to county general fund. Records digitization project proposed by B. Colton — under review.</p></div></div>`
+  },
+  'memo-2004-hq': {
+    title: 'HQ Renovation Memo — 2004', case: 'General Records (1999–2025)', date: 'February 2, 2004', author: 'Sheriff R. Calloway', status: 'closed',
+    body: `<div class="file-section"><div class="file-section-title">Memo</div><div class="file-body"><p>TO: All staff<br/>FROM: Sheriff R. Calloway<br/>RE: HQ renovation schedule<br/><br/>Renovation of the main building on County Road 4 begins March 1. Work will proceed in phases. The records room (lower level, east wing) will be inaccessible March 1 through approximately April 15. All physical files required during this period must be requested in advance from Deputy Aldridge.</p></div></div>`
+  },
+  'memo-2014-fleet': {
+    title: 'Fleet Update Memo — 2014', case: 'General Records (1999–2025)', date: 'August 8, 2014', author: 'Chief Dep. M. Trellis', status: 'closed',
+    body: `<div class="file-section"><div class="file-section-title">Memo</div><div class="file-body"><p>Six new Ford Police Interceptor utility vehicles delivered and assigned. Units 1 through 3 replace 2006 Crown Victorias. Units 4 through 6 are new fleet additions. All units fitted with Watchguard dashcam systems. Decommissioned vehicles sent to county auction — proceeds to equipment fund.</p></div></div>`
+  },
+  'memo-2009-evidence': {
+    title: 'Evidence Storage Protocol Update — 2009', case: 'General Records (1999–2025)', date: 'March 11, 2009', author: 'Chief Dep. M. Trellis', status: 'closed',
+    body: `<div class="file-section"><div class="file-section-title">Memo</div><div class="file-body"><p>TO: All investigative staff<br/>RE: Evidence chain of custody revision<br/><br/>Effective April 1, all physical evidence must be logged through the new dual-sign intake procedure. This applies to both primary storage (HQ) and the annex facility on Building C. Long-term sealed evidence — including items predating 2000 — is to remain undisturbed unless authorized in writing by the Sheriff.</p></div></div>`
+  },
+  '97-0441-audio': {
+    title: 'Dispatch Recording — October 14, 1997', case: 'Case #97-0441 — [REDACTED]', date: 'October 14, 1997', author: 'Dispatch — ACSO', status: 'open',
+    audioPlaceholder: 'dispatch-97-1014.mp3 — Original cassette tape recovered from archive, not yet digitized',
+    body: `<div class="file-section"><div class="file-section-title">Recording Notes</div><div class="file-body"><p>Original dispatch recording from the morning of October 14, 1997 — the date of the welfare check that initiated Case #97-0441. Cassette tape recovered from the mislabeled evidence box. Condition: fair. Pending digitization by B. Colton.</p></div></div>`
+  },
+  '97-0591-audio': {
+    title: 'Voicemail — December 8, 1997', case: 'Case #97-0591 — Det. [REDACTED]', date: 'December 8, 1997', author: 'Det. [REDACTED]', status: 'cold',
+    audioPlaceholder: 'det-voicemail-dec8.mp3 — Recovered from ACSO main line answering machine, not yet digitized',
+    body: `<div class="file-section"><div class="file-section-title">Recording Notes</div><div class="file-body"><p>Voicemail left by Det. <span class="redacted">████████████████</span> on the ACSO main line at 22:47 on December 8, 1997 — approximately nine hours before he failed to report for duty. Message preserved on original answering machine cassette. Contents: [SEALED — Det. S. Dunmore, 03/05/2026]. Digitization pending clearance.</p></div></div>`
+  },
+  '97-0591-dashcam': {
+    title: 'Unit 3 Dashcam — December 11, 1997', case: 'Case #97-0591 — Det. [REDACTED]', date: 'December 11, 1997', author: 'Dep. R. Vance', status: 'cold',
+    videoPlaceholder: 'unit3-dashcam-dec11.mp4 — Original VHS tape, transfer to digital pending',
+    body: `<div class="file-section"><div class="file-section-title">Recording Notes</div><div class="file-body"><p>In-car dashcam footage from Unit 3 during the route patrol and vehicle discovery on December 11, 1997. Covers Rural Route 12 east approach and the abandoned vehicle scene. Original VHS. Quality: degraded. Digital transfer pending authorization from Det. Dunmore.</p></div></div>`
+  },
+  '26-0031-voicemail': {
+    title: 'Last Voicemail — February 28, 2026', case: 'Case #26-0031 — Alderman', date: 'February 28, 2026', author: 'T. Alderman', status: 'active',
+    audioPlaceholder: 'alderman-voicemail-feb28.mp3 — Digital recording recovered from family member\'s phone',
+    body: `<div class="file-section"><div class="file-section-title">Recording Notes</div><div class="file-body"><p>Voicemail left by Thomas Alderman on his sister's phone at 21:33 on February 28, 2026 — approximately 90 minutes before he was last seen downtown. Family members describe the message as "strange" and "not like him." Digital file. Access pending review clearance from Sheriff Hargrove.</p></div></div>`
+  },
   'archive-evidence-recovery': {
     title: 'Evidence Box Recovery Report',
     case: 'Archive Project — 2026',
@@ -989,19 +1151,37 @@ function toggleFolder(id) {
   icon.textContent = isOpen ? '▶' : '▼';
 }
 
-function openFile(id) {
+function openFile(id, fromUnlock) {
   const file = FILES[id];
   if (!file) return;
 
   document.querySelectorAll('.tree-file').forEach(f => f.classList.remove('selected'));
-  event.currentTarget.classList.add('selected');
+  if (!fromUnlock && event && event.currentTarget) event.currentTarget.classList.add('selected');
 
   const statusMap = { cold:'badge-cold', open:'badge-open', active:'badge-active', closed:'badge-closed' };
   const statusLabel = { cold:'Cold Case', open:'Under Review', active:'Active', closed:'Closed' };
 
   document.getElementById('viewer-path').textContent = file.case + ' / ' + file.title;
-  document.getElementById('viewer-meta').textContent = file.date + ' — ' + file.author;
+  document.getElementById('viewer-meta').textContent = file.date + ' \u2014 ' + file.author;
   document.getElementById('sb-file').textContent = 'FILE: ' + id.toUpperCase();
+
+  let mediaHtml = '';
+  if (file.audio) {
+    mediaHtml += '<div class="media-player"><div class="media-label">&#127908; <span>Audio Recording</span></div>'
+      + '<audio controls><source src="media/' + file.audio + '" type="audio/mpeg"/></audio></div>';
+  }
+  if (file.video) {
+    mediaHtml += '<div class="media-player"><div class="media-label">&#127909; <span>Video Recording</span></div>'
+      + '<video controls><source src="media/' + file.video + '" type="video/mp4"/></video></div>';
+  }
+  if (file.audioPlaceholder) {
+    mediaHtml += '<div class="media-unavailable"><div class="media-unavailable-icon">&#127908;</div>'
+      + file.audioPlaceholder + '<br/>[ Pending digitization \u2014 contact B. Colton ext. 2 ]</div>';
+  }
+  if (file.videoPlaceholder) {
+    mediaHtml += '<div class="media-unavailable"><div class="media-unavailable-icon">&#127909;</div>'
+      + file.videoPlaceholder + '<br/>[ Pending digitization \u2014 contact B. Colton ext. 2 ]</div>';
+  }
 
   document.getElementById('viewer-content').innerHTML = `
     <div class="file-header">
@@ -1012,61 +1192,61 @@ function openFile(id) {
         <div class="file-meta-item"><strong>Author:</strong> ${file.author}</div>
       </div>
     </div>
+    ${mediaHtml}
     ${file.body}
   `;
 }
 
 function openLocked(fileId, caseId) {
-  document.getElementById('viewer-path').textContent = 'Locked File — Access Restricted';
-  document.getElementById('viewer-meta').textContent = '';
   document.getElementById('sb-file').textContent = 'FILE: LOCKED';
+  if (unlockedCases.has(caseId)) { openFile(fileId, true); return; }
 
-  if (unlockedCases.has(caseId)) {
-    openFile(fileId);
-    return;
+  document.getElementById('viewer-path').textContent = 'Locked \u2014 ' + caseId.toUpperCase();
+  document.getElementById('viewer-meta').textContent = 'Case access required';
+
+  const iid = 'vl-' + caseId;
+  const eid = 'vle-' + caseId;
+
+  document.getElementById('viewer-content').innerHTML =
+    '<div class="viewer-lock">'
+    + '<div class="viewer-lock-title">&#128274; File Access Restricted</div>'
+    + '<div class="viewer-lock-sub">This file is part of a sealed case folder.<br/>Enter the case access code to unlock all files within it.</div>'
+    + '<div class="viewer-lock-row">'
+    + '<input class="viewer-lock-input" id="' + iid + '" type="password" placeholder="Case access code" autocomplete="off" spellcheck="false"/>'
+    + '<button class="viewer-lock-btn" onclick="attemptCaseUnlock(\'' + caseId + '\',\'' + fileId + '\')">&#9654; Unlock</button>'
+    + '</div>'
+    + '<div class="viewer-lock-error" id="' + eid + '">&nbsp;</div>'
+    + '<div class="viewer-lock-hint">Folder: ' + caseId.toUpperCase() + '<br/>For access authorization contact Det. S. Dunmore \u2014 ext. 3</div>'
+    + '</div>';
+
+  const inp = document.getElementById(iid);
+  if (inp) {
+    inp.addEventListener('keydown', e => { if (e.key === 'Enter') attemptCaseUnlock(caseId, fileId); });
+    inp.focus();
   }
-
-  document.getElementById('viewer-content').innerHTML = `
-    <div class="locked-overlay">
-      <div class="lock-icon">&#128274;</div>
-      <div class="lock-title">File Access Restricted</div>
-      <div class="lock-subtitle">This file requires a case-specific access code.<br/>Enter the code for this case folder to unlock all files within it.</div>
-      <div class="lock-input-row">
-        <input class="lock-input" id="case-pass-input" type="password" placeholder="Case access code" autocomplete="off" spellcheck="false"/>
-        <button class="lock-btn" onclick="attemptCaseUnlock('${caseId}', '${fileId}')">Unlock</button>
-      </div>
-      <div class="lock-error" id="case-pass-error">&nbsp;</div>
-      <div class="lock-hint">
-        Case folder: ${caseId.toUpperCase()}<br/>
-        Contact Det. S. Dunmore (ext. 3) for access authorization.
-      </div>
-    </div>
-  `;
-
-  document.getElementById('case-pass-input').addEventListener('keydown', e => {
-    if (e.key === 'Enter') attemptCaseUnlock(caseId, fileId);
-  });
 }
 
 function attemptCaseUnlock(caseId, fileId) {
-  const input = document.getElementById('case-pass-input');
-  const error = document.getElementById('case-pass-error');
+  const iid = 'vl-' + caseId;
+  const eid = 'vle-' + caseId;
+  const input = document.getElementById(iid);
+  const error = document.getElementById(eid);
+  if (!input) return;
   if (input.value.trim().toUpperCase() === CASE_PASSWORDS[caseId]) {
     unlockedCases.add(caseId);
     document.querySelectorAll('.tree-file.locked').forEach(el => {
       const onclick = el.getAttribute('onclick');
       if (onclick && onclick.includes("'" + caseId + "'")) {
         el.classList.remove('locked');
-        el.querySelector('.tree-file-icon').classList.remove('lock');
-        el.querySelector('.tree-file-icon').classList.add('doc');
-        el.querySelector('.tree-file-icon').textContent = '📄';
+        const icon = el.querySelector('.tree-file-icon');
+        if (icon) { icon.classList.remove('lock'); icon.classList.add('doc'); icon.textContent = '\uD83D\uDCC4'; }
       }
     });
-    openFile(fileId);
+    openFile(fileId, true);
   } else {
     input.classList.add('error');
-    error.textContent = 'Invalid case access code.';
-    setTimeout(() => input.classList.remove('error'), 500);
+    if (error) error.textContent = 'Invalid case access code.';
+    setTimeout(() => { const i = document.getElementById(iid); if (i) i.classList.remove('error'); }, 500);
   }
 }
 </script>
