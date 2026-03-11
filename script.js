@@ -11,15 +11,15 @@ function showPage(id, navEl) {
     showPage(id, document.getElementById('nav-' + id));
   }
 
-  // Believable visitor counter
-  // Seed: site "launched" Jan 3 2026, grows ~8-15 visits/day with some noise
+
+
   (function() {
     const launch = new Date('2026-01-03T00:00:00');
     const now = new Date();
     const days = Math.max(0, (now - launch) / (1000 * 60 * 60 * 24));
-    const base = 312; // visits before launch (old site / word of mouth)
+    const base = 312;
     const avgPerDay = 11;
-    const seed = Math.floor(days * 365.25) % 9999; // stable per-day pseudo-random offset
+    const seed = Math.floor(days * 365.25) % 9999;
     const noise = ((seed * 1103515245 + 12345) & 0x7fffffff) % 40 - 20;
     const total = Math.floor(base + days * avgPerDay + noise);
     const el = document.getElementById('hit-counter');
