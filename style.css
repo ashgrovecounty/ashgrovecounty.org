@@ -673,7 +673,8 @@
 
     .archive-photo-box {}
     .archive-photo-box img {
-      width: 100%;
+      width: 100%; height: 220px;
+      object-fit: cover; object-position: center;
       display: block;
       filter: grayscale(1) contrast(1.1) brightness(0.9);
     }
@@ -700,7 +701,8 @@
       border: 2px solid var(--navy);
     }
     .dept-photo-wide img {
-      width: 100%;
+      width: 100%; height: 220px;
+      object-fit: cover; object-position: center;
       display: block;
       filter: saturate(0.75) contrast(1.05);
     }
@@ -719,7 +721,8 @@
       border: 1px solid var(--navy);
     }
     .pr-inline-photo img {
-      width: 100%;
+      width: 100%; height: 220px;
+      object-fit: cover; object-position: center;
       display: block;
       filter: saturate(0.8) contrast(1.05);
     }
